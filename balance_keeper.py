@@ -21,7 +21,7 @@ config = json.load(config_data)
 config_data.close()
 
 ##Send payments to hosted delegate at defined time once per day
-
+global x_just_sent
 x_time_to_send = config["x_time_to_send"]
 
 x_just_sent = False
@@ -102,10 +102,11 @@ while True:
         f.write('Payment sent at Price-> %s recorded at %s.\n' % (x_price_average, datetime.datetime.now()))
         f.close()
         x_just_sent = True
+        print(x_just_sent)
     else:
       x_just_sent = False
-      print("Not time yet...")
-
+      print("Not time yet..."
+    print(x_just_sent)
 
     ##if balance > THRESH:
     ##   print("wallet_delegate_withdraw_pay %s, %s, %s" % (DELEGATE_NAME, PAYTO, THRESH))
