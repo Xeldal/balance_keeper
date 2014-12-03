@@ -107,7 +107,7 @@ while True:
     else:
       x_just_sent = False
       print("Not time yet..."
-    print(x_just_sent)
+  print(x_just_sent)
 
     ##if balance > THRESH:
     ##   print("wallet_delegate_withdraw_pay %s, %s, %s" % (DELEGATE_NAME, PAYTO, THRESH))
