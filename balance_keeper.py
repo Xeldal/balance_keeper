@@ -107,7 +107,8 @@ while True:
         f.write('Payment Sent!   Price: %.5f    DATE/TIME: %s.\n' % (feed_price, datetime.datetime.now()))
         f.close()
         print("Payment Sent!   Price: %.5f    DATE/TIME: %s.\n" % (feed_price, datetime.datetime.now()))
-        
+      else:
+        print("Payment has already been sent.  Nothing to do.")
     else:
       x_just_sent = False
       print("Not time yet...")
