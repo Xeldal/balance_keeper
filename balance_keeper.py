@@ -106,9 +106,9 @@ while True:
           print("FATAL: Failed to get market info:")
           print(result2["error"])
           exit(1)
-        response2 = fresponse2["result"]
+        response2 = response2["result"]
         
-        feed_price = float(response2["current_feed_price"])
+        feed_price = response2["current_feed_price"]
 
         f = open("payroll.txt","a")
         f.write('Payment sent at Price-> %.5f recorded at %s.\n' % (feed_price, datetime.datetime.now()))
