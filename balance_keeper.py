@@ -22,8 +22,6 @@ config_data.close()
 
 ##Send payments to hosted delegate at defined time once per day
 
-x_amount = config["x_amount"]
-
 x_time_to_send = config["x_time_to_send"]
 
 x_just_sent = False
@@ -37,7 +35,8 @@ WALLET_NAME = config["wallet_name"]
 
 DELEGATE_NAME = config["delegate_name"]
 PAYTO = config["payto_account"]
-THRESH = config["balance_threshold"]
+AMOUNT = config["x_amount"]
+x_hour_chosen = config["x_hour_chosen"]
 
 def parse_date(date):
   return datetime.datetime.strptime(date, "%Y%m%dT%H%M%S")
@@ -96,7 +95,7 @@ while True:
         ## Send one payment per day
         ##client.send_delegate_payment(x_delegate, x_to_account, x_amount)
         ##print("wallet_delegate_withdraw_pay %s, %s, %s" % (DELEGATE_NAME, PAYTO, THRESH))
-        response = call("wallet_delegate_withdraw_pay", [DELEGATE_NAME, PAYTO, x_amount])
+        response = call("wallet_delegate_withdraw_pay", [DELEGATE_NAME, PAYTO, AMOUNT])
         print("sending Payment...")
         ##print("sending payment... BTS Rate- %.5f USD \n" % (x_price_average))
         f = open("payroll.txt","a")
@@ -108,10 +107,10 @@ while True:
       print("Not time yet...")
 
 
-    if balance > THRESH:
-       print("wallet_delegate_withdraw_pay %s, %s, %s" % (DELEGATE_NAME, PAYTO, THRESH))
-       response = call("wallet_delegate_withdraw_pay", [DELEGATE_NAME, PAYTO, THRESH])
+    ##if balance > THRESH:
+    ##   print("wallet_delegate_withdraw_pay %s, %s, %s" % (DELEGATE_NAME, PAYTO, THRESH))
+    ##   response = call("wallet_delegate_withdraw_pay", [DELEGATE_NAME, PAYTO, THRESH])
     
-    time.sleep(1010)
+    time.sleep(60)
   except:
-    time.sleep(1010)
+    time.sleep(60)
