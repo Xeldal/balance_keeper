@@ -64,8 +64,9 @@ def call(method, params=[]):
   return None
 
 while True:
+  global x_just_sent
   try:
-    global x_just_sent
+    
     os.system("clear")
     print("\nRunning Balance Keeper")
  
