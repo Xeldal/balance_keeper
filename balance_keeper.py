@@ -97,12 +97,13 @@ while True:
         ##print("wallet_delegate_withdraw_pay %s, %s, %s" % (DELEGATE_NAME, PAYTO, THRESH))
         response = call("wallet_delegate_withdraw_pay", [DELEGATE_NAME, PAYTO, AMOUNT])
         print("sending Payment...")
-        ##print("sending payment... BTS Rate- %.5f USD \n" % (x_price_average))
-        f = open("payroll.txt","a")
-        f.write('Payment sent at Price-> %s recorded at %s.\n' % (x_price_average, datetime.datetime.now()))
-        f.close()
         x_just_sent = True
         print(x_just_sent)
+        ##print("sending payment... BTS Rate- %.5f USD \n" % (x_price_average))
+        f = open("payroll.txt","a")
+        f.write('Payment sent at Price-> x recorded at %s.\n' % (datetime.datetime.now()))
+        f.close()
+        
     else:
       x_just_sent = False
       print("Not time yet...")
