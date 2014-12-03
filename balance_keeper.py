@@ -64,9 +64,8 @@ def call(method, params=[]):
   return None
 
 while True:
-  global x_just_sent
   try:
-    
+    global x_just_sent
     os.system("clear")
     print("\nRunning Balance Keeper")
  
@@ -106,8 +105,8 @@ while True:
         print(x_just_sent)
     else:
       x_just_sent = False
-      print("Not time yet..."
-  print(x_just_sent)
+      print("Not time yet...")
+    print(x_just_sent)
 
     ##if balance > THRESH:
     ##   print("wallet_delegate_withdraw_pay %s, %s, %s" % (DELEGATE_NAME, PAYTO, THRESH))
