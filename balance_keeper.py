@@ -102,10 +102,10 @@ while True:
         ##print("sending payment... BTS Rate- %.5f USD \n" % (x_price_average))
         
        
-        response = call("blockchain_market_status", ["USD"], ["BTS"])
-        if "error" in response2:
+        response = call("blockchain_market_status", [MARKETUSD], [MARKETBTS])
+        if "error" in response:
           print("FATAL: Failed to get market info:")
-          print(result2["error"])
+          print(result["error"])
           exit(1)
         response = response["result"]
         
