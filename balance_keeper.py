@@ -69,7 +69,7 @@ while True:
   try:
     global x_just_sent
     os.system("clear")
-    print("\nRunning Balance Keeper")
+    print("\nRunning Balance Keeper\n")
  
     response = call("wallet_get_account", [DELEGATE_NAME] )
     if "error" in response:
@@ -80,7 +80,7 @@ while True:
 
     balance = response["delegate_info"]["pay_balance"] / BTS_PRECISION
 
-    print ("Balance for %s is currently: %s BTS" % (DELEGATE_NAME, balance))
+    print ("Balance for %s is currently: %s BTS\n" % (DELEGATE_NAME, balance))
 
     x_nowtime = datetime.datetime.time(datetime.datetime.now())
     x_hour_current = int(x_nowtime.hour)
