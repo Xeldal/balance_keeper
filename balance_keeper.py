@@ -106,12 +106,12 @@ while True:
     else:
       x_just_sent = False
       print("Not time yet...")
-    print(x_just_sent)
-
     ##if balance > THRESH:
     ##   print("wallet_delegate_withdraw_pay %s, %s, %s" % (DELEGATE_NAME, PAYTO, THRESH))
     ##   response = call("wallet_delegate_withdraw_pay", [DELEGATE_NAME, PAYTO, THRESH])
-    
+    print(x_just_sent)
+    print("going to sleep")
     time.sleep(60)
   except:
+    print("except")
     time.sleep(60)
