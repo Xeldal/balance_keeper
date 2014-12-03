@@ -36,6 +36,7 @@ WALLET_NAME = config["wallet_name"]
 DELEGATE_NAME = config["delegate_name"]
 PAYTO = config["payto_account"]
 AMOUNT = config["x_amount"]
+MARKETUSD = "USD BTS"
 
 def parse_date(date):
   return datetime.datetime.strptime(date, "%Y%m%dT%H%M%S")
@@ -100,7 +101,7 @@ while True:
         print(x_just_sent)
         ##print("sending payment... BTS Rate- %.5f USD \n" % (x_price_average))
         
-        response = call("blockchain_market_status", ["USD BTS"])
+        response = call("blockchain_market_status", [MARKETUSD])
         if "error" in response:
           print("FATAL: Failed to get market info:")
           print(result["error"])
