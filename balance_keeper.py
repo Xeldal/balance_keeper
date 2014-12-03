@@ -81,7 +81,6 @@ while True:
 
     print ("Balance for %s is currently: %s BTS" % (DELEGATE_NAME, balance))
 
-    ##x_price_average = price_average/rate_cny["USD"]
     x_nowtime = datetime.datetime.time(datetime.datetime.now())
     x_hour_current = int(x_nowtime.hour)
     print("checking time")
@@ -101,14 +100,15 @@ while True:
         print(x_just_sent)
         ##print("sending payment... BTS Rate- %.5f USD \n" % (x_price_average))
         
-        response = call("blockchain_market_status", [MARKETUSD])
-        if "error" in response:
+       
+        response2 = call("blockchain_market_status", [MARKETUSD])
+        if "error" in response2:
           print("FATAL: Failed to get market info:")
-          print(result["error"])
+          print(result2["error"])
           exit(1)
-        response = response["result"]
+        response2 = response2["result"]
         
-        feed_price = response["current_feed_price"]
+        feed_price = response2["current_feed_price"]
 
         f = open("payroll.txt","a")
         f.write('Payment sent at Price-> %.5f recorded at %s.\n' % (feed_price, datetime.datetime.now()))
