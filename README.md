@@ -1,6 +1,6 @@
-This is alt's watchdog.py script gutten to maintain a delegate balance.
-- Copy the config.json.sameple to config.json
-- Update config.json without your own rpc and delegate data
-- balance_threshold is the BTS limit at which a payment will be triggered.
-- Script loops every 1010 seconds (length of a round)
+This is an adaptation of Riverheads adaptation of alt's watchdog.py script gutted to make daily payments to another user.
+- Copy the config.json.sample to config.json
+- Update config.json with your own rpc and delegate data as well as who the payments will be sent to and the amount.
+- x_time_to_send is the hour when the payment will be sent everyday.
+- Script loops every 60 seconds to check if it is time to send.
 
