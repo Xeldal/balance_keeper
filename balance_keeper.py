@@ -36,7 +36,6 @@ WALLET_NAME = config["wallet_name"]
 DELEGATE_NAME = config["delegate_name"]
 PAYTO = config["payto_account"]
 AMOUNT = config["x_amount"]
-x_hour_chosen = config["x_hour_chosen"]
 
 def parse_date(date):
   return datetime.datetime.strptime(date, "%Y%m%dT%H%M%S")
