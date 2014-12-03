@@ -88,11 +88,11 @@ while True:
     print("Checking the time... %s" % x_nowtime) 
     print("Sent Recently?: %d" % x_just_sent)
     if x_hour_chosen == x_hour_current:
-      print("Hours Match!")
+      print("Hours Match!\n")
       if x_just_sent == False:
         ## Send one payment per day
         response = call("wallet_delegate_withdraw_pay", [DELEGATE_NAME, PAYTO, AMOUNT])
-        print("Sending Payment Now...")
+        print("Sending Payment Now...\n")
         x_just_sent = True
         
         response = call("blockchain_market_status", [MARKETUSD, MARKETBTS])
@@ -108,16 +108,13 @@ while True:
         f.close()
         print("Payment Sent!   Price: %.5f    DATE/TIME: %s.\n" % (feed_price, datetime.datetime.now()))
       else:
-        print("Payment has already been sent.  Nothing to do.")
+        print("Payment has already been sent.  Nothing to do.\n")
     else:
       x_just_sent = False
       print("Not time yet...")
-    ##if balance > THRESH:
-    ##   print("wallet_delegate_withdraw_pay %s, %s, %s" % (DELEGATE_NAME, PAYTO, THRESH))
-    ##   response = call("wallet_delegate_withdraw_pay", [DELEGATE_NAME, PAYTO, THRESH])
-    print(x_just_sent)
+      
     print("going to sleep")
     time.sleep(60)
   except:
-    print("except")
+    print("exception")
     time.sleep(60)
