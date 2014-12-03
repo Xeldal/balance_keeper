@@ -101,14 +101,14 @@ while True:
         ##print("sending payment... BTS Rate- %.5f USD \n" % (x_price_average))
         
        
-        response2 = call("blockchain_market_status", [MARKETUSD])
+        response = call("blockchain_market_status", "USD", "BTS")
         if "error" in response2:
           print("FATAL: Failed to get market info:")
           print(result2["error"])
           exit(1)
-        response2 = response2["result"]
+        response = response["result"]
         
-        feed_price = response2["current_feed_price"]
+        feed_price = response["current_feed_price"]
 
         f = open("payroll.txt","a")
         f.write('Payment sent at Price-> %.5f recorded at %s.\n' % (feed_price, datetime.datetime.now()))
