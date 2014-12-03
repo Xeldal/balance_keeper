@@ -41,6 +41,7 @@ def parse_date(date):
   return datetime.datetime.strptime(date, "%Y%m%dT%H%M%S")
 
 def call(method, params=[]):
+  global x_just_sent
   headers = {'content-type': 'application/json'}
   request = {
           "method": method,
