@@ -7,7 +7,7 @@
   "wallet_name": "",
   "delegate_name": "",
   "payto_account": "",
-  "balance_threshold": 99999999999,
+  "x_amount": 1,
   "x_amount": 1,
   "x_time_to_send": 11
 }
