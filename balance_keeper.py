@@ -20,6 +20,16 @@ config_data = open('config.json')
 config = json.load(config_data)
 config_data.close()
 
+##Send payments to hosted delegate at defined time once per day
+
+x_amount = config["x_amount"]
+
+x_time_to_send = config["x_time_to_send"]
+
+x_just_sent = False
+x_fulltime = datetime.time(x_time_to_send, 0, 0)
+x_hour_chosen = int(x_fulltime.hour)
+
 auth = (config["bts_rpc"]["username"], config["bts_rpc"]["password"])
 url = config["bts_rpc"]["url"]
 
@@ -70,6 +80,33 @@ while True:
     balance = response["delegate_info"]["pay_balance"] / BTS_PRECISION
 
     print ("Balance for %s is currently: %s BTS" % (DELEGATE_NAME, balance))
+
+    ##x_price_average = price_average/rate_cny["USD"]
+    x_nowtime = datetime.datetime.time(datetime.datetime.now())
+    x_hour_current = int(x_nowtime.hour)
+    print("checking time")
+    print(x_nowtime)
+    print("justsent %d" % x_just_sent)
+    print("Current hour %d" % x_hour_current)
+    print("Hour to send %d" % x_hour_chosen)
+    if x_hour_chosen == x_hour_current:
+      print("Hours Match!")
+      if x_just_sent == False:
+        print("Time to Send!")
+        ## Send one payment per day
+        ##client.send_delegate_payment(x_delegate, x_to_account, x_amount)
+        ##print("wallet_delegate_withdraw_pay %s, %s, %s" % (DELEGATE_NAME, PAYTO, THRESH))
+        response = call("wallet_delegate_withdraw_pay", [DELEGATE_NAME, PAYTO, x_amount])
+        print("sending Payment...")
+        ##print("sending payment... BTS Rate- %.5f USD \n" % (x_price_average))
+        f = open("payroll.txt","a")
+        f.write('Payment sent at Price-> %s recorded at %s.\n' % (x_price_average, datetime.datetime.now()))
+        f.close()
+        x_just_sent = True
+    else:
+      x_just_sent = False
+      print("Not time yet...")
+
 
     if balance > THRESH:
        print("wallet_delegate_withdraw_pay %s, %s, %s" % (DELEGATE_NAME, PAYTO, THRESH))
