@@ -103,15 +103,16 @@ while True:
         response = response["result"]
         
         feed_price = response["current_feed_price"]
+        USDequiv = AMOUNT * feed_price
         f = open("payroll.txt","a")
-        f.write('Payment Sent!   Price: %.5f    DATE/TIME: %s.\n' % (feed_price, datetime.datetime.now()))
+        f.write('Payment Sent!  Date/Time: %s  Amount: %.5f BTS ($%.5f)  Rate: $%.5f /BTS\n' % (datetime.datetime.now(), AMOUNT, USDequiv, feed_price))
         f.close()
-        print("Payment Sent!   Price: %.5f    DATE/TIME: %s.\n" % (feed_price, datetime.datetime.now()))
+        print("Payment Sent!  Date/Time: %s  Amount: %.5f BTS ($%.5f)  Rate: $%.5f /BTS\n" % (datetime.datetime.now(), AMOUNT, USDequiv, feed_price))
       else:
         print("Payment has already been sent.  Nothing to do.\n")
     else:
       x_just_sent = False
-      print("Not time yet...")
+      print("\nNot time yet...\n")
       
     print("going to sleep")
     time.sleep(60)
