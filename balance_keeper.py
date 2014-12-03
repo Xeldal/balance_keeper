@@ -94,7 +94,7 @@ while True:
         print("Time to Send!")
         ## Send one payment per day
         ##print("wallet_delegate_withdraw_pay %s, %s, %s" % (DELEGATE_NAME, PAYTO, THRESH))
-        response = call("wallet_delegate_withdraw_pay", [DELEGATE_NAME, PAYTO, AMOUNT])
+        ##response = call("wallet_delegate_withdraw_pay", [DELEGATE_NAME, PAYTO, AMOUNT])
         print("sending Payment...")
         x_just_sent = True
         print(x_just_sent)
