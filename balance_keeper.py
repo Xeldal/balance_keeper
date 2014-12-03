@@ -84,20 +84,16 @@ while True:
 
     x_nowtime = datetime.datetime.time(datetime.datetime.now())
     x_hour_current = int(x_nowtime.hour)
-    print("Checking the time")
-    print(x_nowtime)
-    print("justsent %d" % x_just_sent)
-    print("Current hour %d" % x_hour_current)
-    print("Hour to send %d" % x_hour_chosen)
+    print("Payment will be sent at hour: %d" % x_hour_chosen)
+    print("Checking the time... %s" % x_nowtime) 
+    print("Sent Recently?: %d" % x_just_sent)
     if x_hour_chosen == x_hour_current:
       print("Hours Match!")
       if x_just_sent == False:
-        print("Time to Send!")
         ## Send one payment per day
         response = call("wallet_delegate_withdraw_pay", [DELEGATE_NAME, PAYTO, AMOUNT])
-        print("sending Payment...")
+        print("Sending Payment Now...")
         x_just_sent = True
-        print(x_just_sent)
         
         response = call("blockchain_market_status", [MARKETUSD, MARKETBTS])
         if "error" in response:
@@ -107,7 +103,6 @@ while True:
         response = response["result"]
         
         feed_price = response["current_feed_price"]
-        print(feed_price)
         f = open("payroll.txt","a")
         f.write('Payment Sent!   Price: %.5f    DATE/TIME: %s.\n' % (feed_price, datetime.datetime.now()))
         f.close()
