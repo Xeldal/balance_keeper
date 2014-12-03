@@ -109,10 +109,11 @@ while True:
         response = response["result"]
         
         feed_price = response["current_feed_price"]
-
+        print(feed_price)
         f = open("payroll.txt","a")
         f.write('Payment sent at Price-> %.5f recorded at %s.\n' % (feed_price, datetime.datetime.now()))
         f.close()
+        print("finshed write to file")
         
     else:
       x_just_sent = False
