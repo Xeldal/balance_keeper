@@ -84,7 +84,7 @@ while True:
 
     x_nowtime = datetime.datetime.time(datetime.datetime.now())
     x_hour_current = int(x_nowtime.hour)
-    print("checking time")
+    print("Checking the time")
     print(x_nowtime)
     print("justsent %d" % x_just_sent)
     print("Current hour %d" % x_hour_current)
@@ -94,14 +94,11 @@ while True:
       if x_just_sent == False:
         print("Time to Send!")
         ## Send one payment per day
-        ##print("wallet_delegate_withdraw_pay %s, %s, %s" % (DELEGATE_NAME, PAYTO, THRESH))
-        ##response = call("wallet_delegate_withdraw_pay", [DELEGATE_NAME, PAYTO, AMOUNT])
+        response = call("wallet_delegate_withdraw_pay", [DELEGATE_NAME, PAYTO, AMOUNT])
         print("sending Payment...")
         x_just_sent = True
         print(x_just_sent)
-        ##print("sending payment... BTS Rate- %.5f USD \n" % (x_price_average))
         
-       
         response = call("blockchain_market_status", [MARKETUSD, MARKETBTS])
         if "error" in response:
           print("FATAL: Failed to get market info:")
@@ -109,13 +106,12 @@ while True:
           exit(1)
         response = response["result"]
         
-        print(response)
         feed_price = response["current_feed_price"]
         print(feed_price)
         f = open("payroll.txt","a")
-        f.write('Payment sent at Price-> %.5f recorded at %s.\n' % (feed_price, datetime.datetime.now()))
+        f.write('Payment Sent!   Price: %.5f    DATE/TIME: %s.\n' % (feed_price, datetime.datetime.now()))
         f.close()
-        print("finshed write to file")
+        print("Payment Sent!   Price: %.5f    DATE/TIME: %s.\n" % (feed_price, datetime.datetime.now()))
         
     else:
       x_just_sent = False
