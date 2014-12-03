@@ -93,15 +93,24 @@ while True:
       if x_just_sent == False:
         print("Time to Send!")
         ## Send one payment per day
-        ##client.send_delegate_payment(x_delegate, x_to_account, x_amount)
         ##print("wallet_delegate_withdraw_pay %s, %s, %s" % (DELEGATE_NAME, PAYTO, THRESH))
         response = call("wallet_delegate_withdraw_pay", [DELEGATE_NAME, PAYTO, AMOUNT])
         print("sending Payment...")
         x_just_sent = True
         print(x_just_sent)
         ##print("sending payment... BTS Rate- %.5f USD \n" % (x_price_average))
+        
+        response = call("blockchain_market_status USD BTS", [] )
+        if "error" in response:
+          print("FATAL: Failed to get info:")
+          print(result["error"])
+          exit(1)
+        response = response["result"]
+        
+        feed_price = response["current_feed_price"]
+
         f = open("payroll.txt","a")
-        f.write('Payment sent at Price-> x recorded at %s.\n' % (datetime.datetime.now()))
+        f.write('Payment sent at Price-> %.5f recorded at %s.\n' % (feed_price, datetime.datetime.now()))
         f.close()
         
     else:
