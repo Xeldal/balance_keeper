@@ -109,6 +109,7 @@ while True:
           exit(1)
         response = response["result"]
         
+        print(response)
         feed_price = response["current_feed_price"]
         print(feed_price)
         f = open("payroll.txt","a")
