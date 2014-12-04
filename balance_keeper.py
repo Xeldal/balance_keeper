@@ -102,6 +102,17 @@ while True:
         
         feed_price = response["current_feed_price"]
         USDequiv = AMOUNT * feed_price
+        
+        response = call("wallet_account_transaction_history", [DELEGATE_NAME])
+        if "error" in response:
+          print("FATAL: Failed to get account history info:")
+          print(result["error"])
+          exit(1)
+        response = response["result"]
+        print(response)
+        
+        ##feed_price = response["current_feed_price"]
+        
         f = open("payroll.txt","a")
         f.write('Payment Sent!  Date/Time: %s  Amount: %.5f BTS ($%.5f)  Rate: $%.5f /BTS\n' % (datetime.datetime.now(), AMOUNT, USDequiv, feed_price))
         f.close()
