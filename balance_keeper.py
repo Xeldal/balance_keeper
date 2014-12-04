@@ -1,9 +1,8 @@
 #!/usr/bin/env python
 # coding=utf8
 
-# This is a script which connects to a delegate periodically to check if the pay balance is at a,
-# threshold set in the config.json file. If it is, it sends the balance_threshold amount to the payto account
-# specified.
+# This is a script which connects to a delegate periodically to check if it is time to send a payment
+# set in the config.json file. It sends the amount to the payto account specified.
 
 import requests
 import sys
@@ -23,7 +22,6 @@ config_data.close()
 ##Send payments to hosted delegate at defined time once per day
 global x_just_sent
 x_time_to_send = config["x_time_to_send"]
-
 x_just_sent = False
 x_fulltime = datetime.time(x_time_to_send, 0, 0)
 x_hour_chosen = int(x_fulltime.hour)
