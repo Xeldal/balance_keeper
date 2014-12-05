@@ -112,9 +112,10 @@ while True:
           exit(1)
           
         response = response["result"]
-        
+        k = 0
         for i in response:
-          for j in response.items(i):
+          k = k + 1
+          for j in response[k]:
             print(j)
            
         ##indices = [i for i, s in enumerate(j) if 'aa' in s]
