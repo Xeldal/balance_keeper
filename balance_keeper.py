@@ -108,10 +108,14 @@ while True:
           print("FATAL: Failed to get account history info:")
           print(result["error"])
           exit(1)
-        
-        
+          
         response = response["result"]
-        for key, value in response.iteritems():
+        
+        for xItr in response[xItr]:
+          for yItr in response[xItr][yItr]:
+            print(yItr)
+       
+        for (key, value) in response.iteritems():
           print(key, value)
         ##print(response)
         
