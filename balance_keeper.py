@@ -116,16 +116,16 @@ while True:
         k = 0
         for i in response:
           k = k + 1
-          print(i)
           
         xTrxId = response[k-1]["trx_id"]
-       
+        timeStamp = response[k-1]["timestamp"]
+        
         ##feed_price = response["current_feed_price"]
         
         f = open("payroll.txt","a")
-        f.write('Payment Sent!  Date/Time: %s  Amount: %.5f BTS ($%.5f)  Rate: $%.5f /BTS  Trx_ID: 5.8s\n' % (datetime.datetime.now(), AMOUNT, USDequiv, feed_price, xTrxId))
+        f.write('Payment Sent!  Date/Time: %s  Amount: %.5f BTS ($%.5f)  Rate: $%.5f /BTS  Trx_ID: 5.8s\n' % (timeStamp, AMOUNT, USDequiv, feed_price, xTrxId))
         f.close()
-        print("Payment Sent!  Date/Time: %s  Amount: %.5f BTS ($%.5f)  Rate: $%.5f /BTS  Trx_ID: 5.8s\n" % (datetime.datetime.now(), AMOUNT, USDequiv, feed_price, xTrxId))
+        print("Payment Sent!  Date/Time: %s  Amount: %.5f BTS ($%.5f)  Rate: $%.5f /BTS  Trx_ID: 5.8s\n" % (timeStamp, AMOUNT, USDequiv, feed_price, xTrxId))
       else:
         print("Payment has already been sent.  Nothing to do.\n")
     else:
