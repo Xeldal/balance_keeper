@@ -116,8 +116,9 @@ while True:
         k = 0
         for i in response:
           k = k + 1
+          print(i)
           
-        xTrxId = response[k-1]["trx_id"])
+        xTrxId = response[k-1]["trx_id"]
        
         ##feed_price = response["current_feed_price"]
         
