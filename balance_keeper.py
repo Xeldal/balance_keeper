@@ -108,8 +108,12 @@ while True:
           print("FATAL: Failed to get account history info:")
           print(result["error"])
           exit(1)
+        
+        
         response = response["result"]
-        print(response)
+        for key, value in response.iteritems():
+        print key, value
+        ##print(response)
         
         ##feed_price = response["current_feed_price"]
         
