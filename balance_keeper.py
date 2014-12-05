@@ -113,7 +113,7 @@ while True:
         
         for i in response:
           for j in i.iteritems():
-            if j == "ledger_entries":
+            if j == 'ledger_entries':
               for k in j.iteritems():
                 print(k)
        
