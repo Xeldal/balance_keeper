@@ -115,8 +115,7 @@ while True:
         
         for i in response:
           for j in i.iteritems():
-            if 'ledger' in i:
-              print(j)
+            print(j)
            
         ##indices = [i for i, s in enumerate(j) if 'aa' in s]
        
