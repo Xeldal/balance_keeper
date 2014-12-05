@@ -114,7 +114,7 @@ while True:
         response = response["result"]
         k = 0
         for i in response:
-          l = response[0]
+          l = response[k]["ledger_entries"]
           k = k + 1
           print(l)
        
