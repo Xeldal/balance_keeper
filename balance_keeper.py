@@ -113,8 +113,11 @@ while True:
         
         for i in response:
           for j in i.iteritems():
-            print(response[i]["ledger_entries"])
+            if 'ledger' in j:
+              print(j)
            
+        ##indices = [i for i, s in enumerate(j) if 'aa' in s]
+       
        
         ##feed_price = response["current_feed_price"]
         
