@@ -114,7 +114,7 @@ while True:
         response = response["result"]
         
         for i in response:
-          for j in response[i]:
+          for j in response.items(i):
             print(j)
            
         ##indices = [i for i, s in enumerate(j) if 'aa' in s]
