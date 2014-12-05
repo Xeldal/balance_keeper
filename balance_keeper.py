@@ -113,9 +113,8 @@ while True:
         
         for i in response:
           for j in i.iteritems():
-            if "ledger_entries" in j:
-              for k in j.iteritems():
-                print(k)
+            for k in j.iteritems():
+              print(k)
        
         ##feed_price = response["current_feed_price"]
         
