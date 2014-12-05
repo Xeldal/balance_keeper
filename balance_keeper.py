@@ -89,7 +89,7 @@ while True:
       print("Hours Match!\n")
       if x_just_sent == False:
         ## Send one payment per day
-        response = call("wallet_delegate_withdraw_pay", [DELEGATE_NAME, PAYTO, AMOUNT])
+        ##response = call("wallet_delegate_withdraw_pay", [DELEGATE_NAME, PAYTO, AMOUNT])
         print("Sending Payment Now...\n")
         x_just_sent = True
         
@@ -111,9 +111,9 @@ while True:
           
         response = response["result"]
         
-        for xItr in response[xItr]:
-          for yItr in response[xItr][yItr]:
-            print(yItr)
+        for key in response[0]:
+          for key in response[0][0]:
+            print(key)
        
         for (key, value) in response.iteritems():
           print(key, value)
