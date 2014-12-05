@@ -85,6 +85,8 @@ while True:
     print("Payment will be sent at hour: %d" % x_hour_chosen)
     print("Checking the time... %s" % x_nowtime) 
     print("Sent Recently?: %d" % x_just_sent)
+    
+    x_hour_chosen = x_hour_current
     if x_hour_chosen == x_hour_current:
       print("Hours Match!\n")
       if x_just_sent == False:
@@ -113,7 +115,8 @@ while True:
         
         for i in response:
           for j in i.iteritems():
-            print(j)
+            if 'ledger' in j:
+              print(j)
            
         ##indices = [i for i, s in enumerate(j) if 'aa' in s]
        
