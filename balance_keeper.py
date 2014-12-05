@@ -111,14 +111,10 @@ while True:
           
         response = response["result"]
         
-        for key in response[0]:
-          for key in response[0][0]:
-            print(key)
+        for i in response:
+          for j in i.iteritems():
+            print(j)
        
-        for (key, value) in response.iteritems():
-          print(key, value)
-        ##print(response)
-        
         ##feed_price = response["current_feed_price"]
         
         f = open("payroll.txt","a")
