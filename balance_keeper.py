@@ -114,8 +114,9 @@ while True:
         response = response["result"]
         k = 0
         for i in response:
-          if 'withdraw_pay' in response[k]["ledger_entries"]:
-            print(response[k]["ledger_entries"])
+          t = response[k]["ledger_entries"]
+          for j in t:
+            print(j)
           k = k + 1
        
         ##feed_price = response["current_feed_price"]
