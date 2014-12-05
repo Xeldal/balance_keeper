@@ -86,7 +86,6 @@ while True:
     print("Checking the time... %s" % x_nowtime) 
     print("Sent Recently?: %d" % x_just_sent)
     
-    x_hour_chosen = x_hour_current
     if x_hour_chosen == x_hour_current:
       print("Hours Match!\n")
       if x_just_sent == False:
