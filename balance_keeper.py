@@ -115,7 +115,8 @@ while True:
         k = 0
         for i in response:
           t = response[k]["ledger_entries"]
-            print(j["memo"])
+            j = j["memo"]
+            print(j)
           k = k + 1
        
         ##feed_price = response["current_feed_price"]
