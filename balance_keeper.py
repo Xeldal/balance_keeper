@@ -115,7 +115,7 @@ while True:
         k = 0
         for i in response:
           t = response[k]["ledger_entries"]
-          j = j["memo"]
+          j = t["memo"]
           print(j)
           k = k + 1
        
