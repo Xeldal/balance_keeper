@@ -114,7 +114,7 @@ while True:
         response = response["result"]
         k = 0
         for i in response:
-          print(response[k]["ledger_entries"]["memo"])
+          print(response[k]['ledger_entries']['memo'])
           k = k + 1
            
         ##indices = [i for i, s in enumerate(j) if 'aa' in s]
