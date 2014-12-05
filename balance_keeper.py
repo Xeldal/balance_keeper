@@ -116,7 +116,7 @@ while True:
         for i in response:
           k = k + 1
           print(k)
-        print(response[k]["trx_id"]
+        print(response[k]["trx_id"])
        
         ##feed_price = response["current_feed_price"]
         
