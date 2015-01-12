@@ -1,6 +1,6 @@
 {
   "bts_rpc": {
-    "url": "http://localhost:9999/rpc",
+    "url": "http://localhost:9989/rpc",
     "username": "",
     "password": ""
   },
@@ -8,5 +8,5 @@
   "delegate_name": "",
   "payto_account": "",
   "x_amount": 1,
-  "x_time_to_send": 11
+  "x_time_to_send": 14
 }
